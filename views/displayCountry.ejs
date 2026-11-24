@@ -21,6 +21,7 @@
                 <th style="text-align: left;">Visited</th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
@@ -43,6 +44,11 @@
                             <button type="submit">Delete</button>
                         </form>
                     </td>
+                    <td style="text-align: center;">
+                        <button type="button"
+                            data-country="<%= mycountry[iCount].country_name %>"
+                            onclick="showMap(this.dataset.country)">Map</button>
+                    </td>
                 </tr>
             <% } %>
         </tbody>
@@ -51,5 +57,26 @@
     <form action="/addCountry" method="GET">
         <button type="submit">Add Country</button>
     </form>
+    <br><br>
+    <h2 id="mapTitle"></h2>
+    <iframe
+        id="countryMap"
+        title="Country map"
+        width="600"
+        height="400"
+        style="display: none; max-width: 100%; border: 0;">
+    </iframe>
+    <script>
+        function showMap(country) {
+            document.getElementById("mapTitle").textContent = country;
+
+            document.getElementById("countryMap").src =
+                "https://maps.google.com/maps?q=" +
+                encodeURIComponent(country) +
+                "&output=embed";
+
+            document.getElementById("countryMap").style.display = "block";
+        }
+    </script>
 </body>
 </html>
