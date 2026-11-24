@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/editCountry" method="POST">
+        <fieldset style="width: 0px;">
+            <legend>Edit a Country:</legend>
+            <input type="hidden" id="country_id" name="country_id" value="<%= mycountry[0].country_id %>">
+            <label for="country_name">Country Name:</label>
+            <input type="text" id="country_name" name="country_name" value="<%= mycountry[0].country_name %>">
+            <br><br>
+            <label for="popular_site">Popular Site:</label>
+            <input type="text" id="popular_site" name="popular_site" value="<%= mycountry[0].popular_site %>">
+            <br><br>
+            <label for="capital">Capital:</label>
+            <input type="text" id="capital" name="capital" value="<%= mycountry[0].capital %>">
+            <br><br>
+            <label for="population">Population:</label>
+            <input type="text" id="population" name="population" value="<%= mycountry[0].population %>">
+            <br><br>
+            <label for="visited">Visited (Y/N):</label>
+            <input type="checkbox" id="visited" name="visited" <%= mycountry[0].visited == "Y" ? "checked" : "" %> >
+            <br><br>
+        </fieldset>
+    </form>
+</body>
+</html>
