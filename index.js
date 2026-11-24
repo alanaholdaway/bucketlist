@@ -92,5 +92,3 @@ app.listen(port, "0.0.0.0", () => {
 app.get("/health", (req, res) => {
     res.send("Server is working!");
 });
-
-app.listen(port, () => console.log("Travel website is listening!"))
