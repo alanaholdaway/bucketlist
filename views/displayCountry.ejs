@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
     <label><b>Country Information:</b></label>
     <br><br>
     <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
@@ -22,7 +25,6 @@
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
             <% for (let iCount = 0; iCount < mycountry.length; iCount++) { %>
-                // this is to get data 
                 <tr>
                     <td><%= mycountry[iCount].country_name %></td>
                     <td><%= mycountry[iCount].popular_site %></td>
@@ -33,8 +35,11 @@
                         <form action="/editCountry/<%= mycountry[iCount].country_id %>" method="GET">
                             <button type="submit">Edit</button>
                         </form>
+                    </td>
                     <td style="text-align: center;">
-                        <form action="/deleteCountry/<%= mycountry[iCount].country_id %>" method="POST">
+                        <form action="/deleteCountry/<%= mycountry[iCount].country_id %>"
+                            method="POST"
+                            onsubmit="return confirm('Are you sure you want to delete this country?');">
                             <button type="submit">Delete</button>
                         </form>
                     </td>
